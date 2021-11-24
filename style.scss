@@ -1,0 +1,112 @@
+@import 'tailwindcss/dist/base.css';
+
+:root {
+  --theme-pink: #FCA5A5;
+  --theme-pink-light: #FECACA;
+  --theme-red: #EF4444;
+  --theme-red-light: #F87171;
+  --theme-red-dark-most: #7F1D1D;
+  
+  --theme-gray-text: #4B5563;
+  --theme-gray-text-light: #6B7280;
+  --theme-gray-text-dark: #374151;
+  --theme-gray-text-dark-most: #111827;
+  
+  --theme-radius: 8px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  min-height: 100vh;
+  width: 100vw;
+}
+
+#brand {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#notification {
+  font-size: 1.6rem;
+  
+  .todo-count {
+    font-weight: bold;
+  }
+}
+
+.container {
+  width: 100%;
+  flex: 1;
+  
+  .todos {
+    width: 88%;
+    margin: 0 auto;
+  }
+}
+
+.todo-card {
+  --todo-card-padding: .2rem .8rem;
+  
+  border-radius: var(--theme-radius);
+  overflow: hidden;
+  
+  &--header {
+    padding: var(--todo-card-padding);
+    font-weight: bold;
+  }
+  
+  &--content {
+    padding: var(--todo-card-padding);
+  }
+  
+  .todo-list {
+    margin: .3rem 0;
+    
+    &-item {
+      
+      cursor: pointer;
+      
+      &:hover {
+        .todo-list-item-title {
+          color: var(--theme-gray-text-dark-most);
+        }
+        .todo-list-item-description {
+          color: var(--theme-gray-text);
+        }
+      }
+      
+      &-title {
+        font-weight: bold;
+        font-size: 1rem;
+        color: var(--theme-gray-text-dark);
+        transition: all .2s linear;
+      }
+      
+      &-description {
+        color: var(--theme-gray-text-light);
+      }
+      
+      margin-bottom: .5rem;
+    }
+  }
+  
+  &.bg-red {
+    .todo-card--header {
+      background: var(--theme-red-light);    
+      color: var(--theme-red-dark-most);
+    }
+    
+    .todo-card--content {
+      background: var(--theme-pink-light);
+    }
+  }
+}
