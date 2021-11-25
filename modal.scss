@@ -1,0 +1,28 @@
+#modal {
+    &.hidden {
+        display: none;
+    }
+
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#modal-content {
+    background: #ffffff;
+    padding: 1rem;
+
+    border-radius: .5rem;
+    width: 88%;
+    max-width: 480px;
+}

@@ -1,4 +1,5 @@
 @import 'tailwindcss/dist/base.min.css';
+@import 'modal.scss';
 
 :root {
   --theme-red-bg-light: #FECACA; // colors.red.200
@@ -25,6 +26,8 @@
   --theme-gray-text-dark-most: #111827;
   
   --theme-radius: 8px;
+
+  --content-width: 88%;
 }
 
 body {
@@ -58,9 +61,35 @@ body {
 .container {
   width: 100%;
   flex: 1;
+
+  #actions {
+    width: var(--content-width);
+    margin: 0 auto 1rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    #create-todo-btn {
+      padding: 0 .6rem;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+      transition: all 0.2s linear;
+
+      &:hover {
+        background: #fcfcfc;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+      }
+
+      &:active {
+        transform: translate(1px, 1px);
+        transition: all .1s ease-in-out;
+      }
+    }
+  }
   
   .todos {
-    width: 88%;
+    width: var(--content-width);
     margin: 0 auto;
 
     display: flex;
@@ -70,6 +99,7 @@ body {
     @media screen and (min-width: 768px) {
       flex-direction: row;
       justify-content: space-around;
+      align-items: flex-start;
     }
   }
 }
@@ -87,6 +117,14 @@ body {
 
   @media screen and (min-width: 768px) {
     margin: 0 .3rem;
+
+    &:first-child {
+      margin: 0 .3rem 0 0;
+    }
+
+    &:last-child {
+      margin: 0 0 0 .3rem;
+    }
   }
   
   border-radius: var(--theme-radius);

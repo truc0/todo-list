@@ -1,4 +1,7 @@
 import './style.scss'
+import Modal from './modal.js'
+
+const { showModal } = Modal
 
 const todos = [
   {
@@ -59,3 +62,10 @@ for (const todo of todos.filter(t => t.level === 'emergency')) {
 
   emergencyList.appendChild(item)
 }
+
+
+const createBtn = document.querySelector('#create-todo-btn')
+createBtn.addEventListener('click', evt => {
+  console.log('ccc')
+  showModal()  
+})
