@@ -1,11 +1,23 @@
-@import 'tailwindcss/dist/base.css';
+@import 'tailwindcss/dist/base.min.css';
 
 :root {
-  --theme-pink: #FCA5A5;
-  --theme-pink-light: #FECACA;
-  --theme-red: #EF4444;
-  --theme-red-light: #F87171;
-  --theme-red-dark-most: #7F1D1D;
+  --theme-red-bg-light: #FECACA; // colors.red.200
+  --theme-red-bg: #FCA5A5; // colors.red.300
+  --theme-red-light: #F87171; // colors.red.400
+  --theme-red: #EF4444; // colors.red.500
+  --theme-red-dark-most: #7F1D1D; // colors.red.700
+  
+  --theme-yellow-bg-light: #FEF08A; // colors.yellow.200
+  --theme-yellow-bg: #FDE047; // colors.yellow.300
+  --theme-yellow-light: #FDE047; // colors.yellow.400
+  --theme-yellow: #EAB308; // colors.yellow.500
+  --theme-yellow-dark-most: #A16207; // colors.yellow.700
+  
+  --theme-green-bg-light: #BBF7D0; // colors.green.200
+  --theme-green-bg: #86EFAC; // colors.green.300
+  --theme-green-light: #4ADE80; // colors.green.400
+  --theme-green: #22C55E; // colors.green.500
+  --theme-green-dark-most: #15803D; // colors.green.700
   
   --theme-gray-text: #4B5563;
   --theme-gray-text-light: #6B7280;
@@ -25,11 +37,11 @@ body {
 
 #app {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 #brand {
-  height: 30vh;
+  height: 20vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,6 +67,8 @@ body {
 
 .todo-card {
   --todo-card-padding: .2rem .8rem;
+
+  margin-bottom: 1rem;
   
   border-radius: var(--theme-radius);
   overflow: hidden;
@@ -98,15 +112,19 @@ body {
       margin-bottom: .5rem;
     }
   }
-  
-  &.bg-red {
-    .todo-card--header {
-      background: var(--theme-red-light);    
-      color: var(--theme-red-dark-most);
-    }
-    
-    .todo-card--content {
-      background: var(--theme-pink-light);
+
+  $available-themes: 'red', 'yellow', 'green';
+
+  @each $color in $available-themes {
+    &.bg-#{$color} {
+      .todo-card--header {
+        background: var(--theme-#{$color}-light);    
+        color: var(--theme-#{$color}-dark-most);
+      }
+      
+      .todo-card--content {
+        background: var(--theme-#{$color}-bg-light);
+      }
     }
   }
 }
