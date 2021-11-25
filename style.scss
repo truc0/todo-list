@@ -62,13 +62,32 @@ body {
   .todos {
     width: 88%;
     margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-around;
+    }
   }
 }
 
 .todo-card {
   --todo-card-padding: .2rem .8rem;
 
+  width: 100%;
+  max-width: 420px;
+
   margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    margin: 0 .3rem;
+  }
   
   border-radius: var(--theme-radius);
   overflow: hidden;
