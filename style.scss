@@ -211,7 +211,8 @@ body {
   }
 }
 
-.modal-create-todo-actions {
+.modal-create-todo-actions,
+.modal-edit-todo-actions {
   & > button {
     padding: .5rem;
     margin: .2rem;
@@ -245,6 +246,16 @@ body {
       &:hover {
         color: #fff;
         background: var(--theme-red);
+      }
+    }
+
+    &.save {
+      border: 1px solid var(--theme-yellow);
+      color: var(--theme-yellow);
+
+      &:hover {
+        color: #fff;
+        background: var(--theme-yellow);
       }
     }
   }
