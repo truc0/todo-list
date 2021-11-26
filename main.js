@@ -1,7 +1,7 @@
 import './style.scss'
 import Modal from './modal.js'
 
-const { showModal } = Modal
+const { showModal, hideModal } = Modal
 
 const todos = [
   {
@@ -64,8 +64,23 @@ for (const todo of todos.filter(t => t.level === 'emergency')) {
 }
 
 
-const createBtn = document.querySelector('#create-todo-btn')
-createBtn.addEventListener('click', evt => {
-  console.log('ccc')
+const showModalBtn = document.querySelector('#create-todo-btn')
+showModalBtn.addEventListener('click', evt => {
   showModal()  
 })
+
+/* Modals */
+
+const createBtns = document.querySelectorAll('#modal .create')
+for (const btn of createBtns) {
+  btn.addEventListener('click', evt => {
+
+  })
+}
+
+const cancelBtns = document.querySelectorAll('#modal .cancel')
+for (const btn of cancelBtns) {
+  btn.addEventListener('click', evt => {
+    hideModal()
+  })
+}
