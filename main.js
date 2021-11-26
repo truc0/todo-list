@@ -1,6 +1,20 @@
-import './style.css'
+import './style.scss'
+import Data from './js/data.js'
+import Todo from './js/todo.js'
+import Modal from './js/modal.js'
 
-document.querySelector('#app').innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+const { render } = Todo
+const { showModal } = Modal
+
+function init() {
+  Data.load()
+  Todo.init()
+  render()
+
+  const showModalBtn = document.querySelector('#create-todo-btn')
+  showModalBtn.addEventListener('click', evt => {
+    showModal()  
+  })
+}
+
+init()

@@ -1,13 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div id="app">
+    <div id="brand">
+      <div id="notification">
+        You have <span class="todo-count">8</span> <span id="task-text">tasks</span> todo.
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="actions">
+        <div class="left">
+        </div>
+
+        <div class="right">
+          <button id="create-todo-btn">+</button>
+        </div>
+      </div>
+
+      <div class="todos">
+        <div id="emergency-todo-list" class="todo-card bg-red">
+          <div class="todo-card--header">
+            <h3>EMERGENCY</h3>
+          </div>
+
+          <div class="todo-card--content">
+            <ul class="todo-list">
+              <li class="todo-list-item">
+                <div class="todo-list-item--main">
+                  <h6 class="todo-list-item-title">Physic Homework</h6>
+                  <p class="todo-list-item-description">
+                    I have too much homework todo.
+                  </p>
+                </div>
+                <div class="todo-list-item--action">
+                  <button class="todo-list-item--action-done">√</button>
+                </div>
+              </li>
+              <li class="todo-list-item">
+                <div class="todo-list-item--main">
+                  <h6 class="todo-list-item-title">ICS Homework</h6>
+                  <p class="todo-list-item-description">
+                    ICS homework is very difficult.
+                  </p>
+                </div>
+                <div class="todo-list-item--action">
+                  <button class="todo-list-item--action-done">√</button>
+                </div>
+              </li>
+              <li class="todo-list-item">
+                <div class="todo-list-item--main">
+                  <h6 class="todo-list-item-title">Data Structure</h6>
+                  <p class="todo-list-item-description">
+                    Data structure is hard to code.
+                  </p>
+                </div>
+                <div class="todo-list-item--action">
+                  <button class="todo-list-item--action-done">√</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div id="normal-todo-list" class="todo-card bg-yellow">
+          <div class="todo-card--header">
+            <h3>NORMAL</h3>
+          </div>
+
+          <div class="todo-card--content">
+            <ul class="todo-list">
+              <li class="todo-list-item">
+                <div class="todo-list-item--main">
+                  <h6 class="todo-list-item-title">Physic Homework</h6>
+                  <p class="todo-list-item-description">
+                    I have too much homework todo.
+                  </p>
+                </div>
+                <div class="todo-list-item--action">
+                  <button class="todo-list-item--action-done">√</button>
+                </div>
+              </li>
+              <li class="todo-list-item">
+                <div class="todo-list-item--main">
+                  <h6 class="todo-list-item-title">ICS Homework</h6>
+                  <p class="todo-list-item-description">
+                    ICS homework is very difficult.
+                  </p>
+                </div>
+                <div class="todo-list-item--action">
+                  <button class="todo-list-item--action-done">√</button>
+                </div>
+              </li>
+              <li class="todo-list-item">
+                <div class="todo-list-item--main">
+                  <h6 class="todo-list-item-title">Data Structure</h6>
+                  <p class="todo-list-item-description">
+                    Data structure is hard to code.
+                  </p>
+                </div>
+                <div class="todo-list-item--action">
+                  <button class="todo-list-item--action-done">√</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div id="gugu-todo-list" class="todo-card bg-green">
+          <div class="todo-card--header">
+            <h3>GUGU</h3>
+          </div>
+
+          <div class="todo-card--content">
+            <ul class="todo-list">
+              <li class="todo-list-item">
+                <div class="todo-list-item--main">
+                  <h6 class="todo-list-item-title">Physic Homework</h6>
+                  <p class="todo-list-item-description">
+                    I have too much homework todo.
+                  </p>
+                </div>
+                <div class="todo-list-item--action">
+                  <button class="todo-list-item--action-done">√</button>
+                </div>
+              </li>
+              <li class="todo-list-item">
+                <div class="todo-list-item--main">
+                  <h6 class="todo-list-item-title">ICS Homework</h6>
+                  <p class="todo-list-item-description">
+                    ICS homework is very difficult.
+                  </p>
+                </div>
+                <div class="todo-list-item--action">
+                  <button class="todo-list-item--action-done">√</button>
+                </div>
+              </li>
+              <li class="todo-list-item">
+                <div class="todo-list-item--main">
+                  <h6 class="todo-list-item-title">Data Structure</h6>
+                  <p class="todo-list-item-description">
+                    Data structure is hard to code.
+                  </p>
+                </div>
+                <div class="todo-list-item--action">
+                  <button class="todo-list-item--action-done">√</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="hidden">
+    <div id="modal-content">
+      <div class="form-errors hidden">
+        <div class="alert alert-danger">
+          Title cannot be empty.
+        </div>
+      </div>
+      <form>
+        <div>
+          <label for="todo-title">Title</label>
+          <input type="text" name="title" id="todo-title">
+        </div>
+        <div>
+          <label for="todo-description">Description</label>
+          <textarea type="text" name="description" id="todo-description"></textarea>
+        </div>
+        <div>
+          <label for="todo-due-date">Due Date</label>
+          <input type="date" name="due-date" id="todo-due-date">
+        </div>
+        <div>
+          <label for="todo-due">Due Time</label>
+          <input type="time" name="due-time" id="todo-due-time">
+        </div>
+        <div>
+          <label for="todo-level">Level</label>
+          <select name="level" id="todo-level">
+            <option value="emergency">Emergency</option>
+            <option value="normal">Normal</option>
+            <option value="gugu">GuGu</option>
+          </select>
+        </div>
+      </form>
+      <div class="modal-create-todo-actions">
+        <button class="create">Create</button> 
+        <button class="cancel">Cancel</button> 
+      </div>
+      <div class="modal-edit-todo-actions">
+        <button class="save">Save</button> 
+        <button class="cancel">Cancel</button> 
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>
