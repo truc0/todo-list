@@ -1,3 +1,5 @@
+const KEY = 'todos'
+
 const todos = [
   {
     id: 0,
@@ -25,6 +27,27 @@ const todos = [
   },
 ]
 
+const save = () => {
+  localStorage.setItem(KEY, JSON.stringify(todos))
+}
+
+const load = () => {
+  let loadedStr = localStorage.getItem(KEY)
+  if (loadedStr === null) { return }
+
+  let loaded = JSON.parse(loadedStr)
+
+  while (todos.length) {
+    todos.pop()
+  }
+
+  for (const todo of loaded) {
+    todos.push(todo) 
+  }
+}
+
 export default {
-    todos
+  todos,
+  save,
+  load
 }

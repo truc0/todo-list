@@ -33,29 +33,30 @@ function generateItem(todo) {
   itemTitle.innerText = todo.title;
 
   const itemDescription = document.createElement("p");
-  itemDescription.classList.add("todo-list-item-description");
-  itemDescription.innerText = todo.description;
+  itemDescription.classList.add("todo-list-item-description")
+  itemDescription.innerText = todo.description
 
-  itemMain.appendChild(itemTitle);
-  itemMain.appendChild(itemDescription);
+  itemMain.appendChild(itemTitle)
+  itemMain.appendChild(itemDescription)
 
-  const itemAction = document.createElement("div");
-  itemAction.classList.add("todo-list-item--action");
+  const itemAction = document.createElement("div")
+  itemAction.classList.add("todo-list-item--action")
 
-  const doneBtn = document.createElement("button");
-  doneBtn.classList.add("todo-list-item--action-done");
-  doneBtn.innerText = "🗸";
+  const doneBtn = document.createElement("button")
+  doneBtn.classList.add("todo-list-item--action-done")
+  doneBtn.innerText = "🗸"
   doneBtn.addEventListener("click", (evt) => {
-    todo.isDone = true;
-    render();
-  });
+    todo.isDone = true
+    render()
+    Data.save()
+  })
 
-  itemAction.appendChild(doneBtn);
+  itemAction.appendChild(doneBtn)
 
-  item.appendChild(itemMain);
-  item.appendChild(itemAction);
+  item.appendChild(itemMain)
+  item.appendChild(itemAction)
 
-  return item;
+  return item
 }
 
 function renderList(listElement, todos) {
@@ -99,32 +100,33 @@ function init() {
       const todo = extractTodo()
 
       if (todo.title === '') {
-        const formErrors = document.querySelector("#modal .form-errors");
-        formErrors.classList.remove("hidden");
-        return;
+        const formErrors = document.querySelector("#modal .form-errors")
+        formErrors.classList.remove("hidden")
+        return
       }
 
       todo.id = Date.now()
 
-      todos.push(todo);
-      render();
+      todos.push(todo)
+      Data.save()
+      render()
 
-      hideModal();
-    });
+      hideModal()
+    })
   }
 
-  const cancelBtns = document.querySelectorAll("#modal .cancel");
+  const cancelBtns = document.querySelectorAll("#modal .cancel")
   for (const btn of cancelBtns) {
     btn.addEventListener("click", (evt) => {
-      hideModal();
-    });
+      hideModal()
+    })
   }
 
-  const saveBtns = document.querySelectorAll("#modal .save");
+  const saveBtns = document.querySelectorAll("#modal .save")
   for (const btn of saveBtns) {
     btn.addEventListener("click", (evt) => {
-      const id = modal.getAttribute("todo-id");
-      const todo = todos.find((t) => t.id === parseInt(id));
+      const id = modal.getAttribute("todo-id")
+      const todo = todos.find((t) => t.id === parseInt(id))
 
       const modified = extractTodo()
       const props = ['title', 'description', 'due', 'isDone', 'level']
@@ -132,14 +134,15 @@ function init() {
       for (const prop of props) {
         todo[prop] = modified[prop]
       }
+      Data.save()
 
       render()
       hideModal()
-    });
+    })
   }
 }
 
 export default {
   init,
   render,
-};
+}
