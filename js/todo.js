@@ -91,6 +91,11 @@ function render() {
     guguList,
     _todos.filter((t) => t.level === "gugu")
   );
+
+  const cntEls = document.querySelectorAll('.todo-count')
+  for (const element of cntEls) {
+    element.innerText = todos.length
+  }
 }
 
 function init() {
