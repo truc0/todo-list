@@ -121,14 +121,19 @@
 
   <div id="modal" class="hidden">
     <div id="modal-content">
+      <div class="form-errors hidden">
+        <div class="alert alert-danger">
+          Title cannot be empty.
+        </div>
+      </div>
       <form>
         <div>
           <label for="todo-title">Title</label>
-          <input type="text" name="todo-title" id="todo-title">
+          <input type="text" name="title" id="todo-title">
         </div>
         <div>
           <label for="todo-description">Description</label>
-          <textarea type="text" name="todo-description" id="todo-description"></textarea>
+          <textarea type="text" name="description" id="todo-description"></textarea>
         </div>
         <div>
           <label for="todo-due-date">Due Date</label>

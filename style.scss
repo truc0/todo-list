@@ -6,6 +6,7 @@
   --theme-red-bg: #FCA5A5; // colors.red.300
   --theme-red-light: #F87171; // colors.red.400
   --theme-red: #EF4444; // colors.red.500
+  --theme-red-dark: #E53E3E;
   --theme-red-dark-most: #7F1D1D; // colors.red.700
   
   --theme-yellow-bg-light: #FEF08A; // colors.yellow.200
@@ -224,3 +225,18 @@ body {
     }
   }
 }
+
+.alert {
+  display: block;
+  padding: .5rem;
+  margin-bottom: 1rem;
+  border-radius: .2rem;
+
+  &-danger {
+    border: 1px solid var(--theme-red-dark-most);
+    background: var(--theme-red-bg-light);
+    color: var(--theme-red-dark-most);
+  }
+}
+
+.hidden { display: none; }
