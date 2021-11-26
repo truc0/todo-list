@@ -142,32 +142,56 @@ body {
   
   .todo-list {
     margin: .3rem 0;
-    
+
     &-item {
-      
-      cursor: pointer;
-      
-      &:hover {
-        .todo-list-item-title {
-          color: var(--theme-gray-text-dark-most);
-        }
-        .todo-list-item-description {
-          color: var(--theme-gray-text);
-        }
-      }
-      
-      &-title {
-        font-weight: bold;
-        font-size: 1rem;
-        color: var(--theme-gray-text);
-        transition: all .2s linear;
-      }
-      
-      &-description {
-        color: var(--theme-gray-text-light);
-      }
-      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+        
       margin-bottom: .5rem;
+
+      transition: all .2s linear;
+
+      &--action {
+        max-width: 0;
+        height: 100%;
+        overflow: hidden;
+        transition: all .2s linear;
+        
+        color: var(--theme-gray-text-dark-most);
+        font-weight: bold;
+      }
+
+      &:hover {
+        .todo-list-item--action {
+          max-width: 999px;
+          padding: .3rem;
+        }
+      }
+
+      &--main {
+        cursor: pointer;
+        
+        &:hover {
+          .todo-list-item-title {
+            color: var(--theme-gray-text-dark-most);
+          }
+          .todo-list-item-description {
+            color: var(--theme-gray-text);
+          }
+        }
+        
+        .todo-list-item-title {
+          font-weight: bold;
+          font-size: 1rem;
+          color: var(--theme-gray-text);
+          transition: all .2s linear;
+        }
+        
+        .todo-list-item-description {
+          color: var(--theme-gray-text-light);
+        }
+      }
     }
   }
 

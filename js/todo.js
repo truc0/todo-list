@@ -23,6 +23,52 @@ const todos = [
 ]
 
 /* update list */
+function generateItem(todo) {
+    /*
+      <li class="todo-list-item">
+        <div class="todo-list-item--main">
+          <h6 class="todo-list-item-title">Data Structure</h6>
+          <p class="todo-list-item-description">
+            Data structure is hard to code.
+          </p>
+        </div>
+        <div class="todo-list-item--action">
+          <button class="todo-list-item--action-done">√</button>
+        </div>
+      </li>
+    */
+    const item = document.createElement("li")
+    item.classList.add("todo-list-item")
+
+    const itemMain = document.createElement("div")
+    itemMain.classList.add("todo-list-item--main")
+
+    const itemTitle = document.createElement("h6")
+    itemTitle.classList.add("todo-list-item-title")
+    itemTitle.innerText = todo.title
+
+    const itemDescription = document.createElement("p")
+    itemDescription.classList.add("todo-list-item-description")
+    itemDescription.innerText = todo.description
+
+    itemMain.appendChild(itemTitle)
+    itemMain.appendChild(itemDescription)
+
+    const itemAction = document.createElement("div")
+    itemAction.classList.add("todo-list-item--action")
+
+    const doneBtn = document.createElement("button")
+    doneBtn.classList.add("todo-list-item--action-done")
+    doneBtn.innerText = '🗸'
+
+    itemAction.appendChild(doneBtn)
+
+    item.appendChild(itemMain)
+    item.appendChild(itemAction)
+
+    return item
+}
+
 function renderList(listElement, todos) {
   // remove existing list
   while (listElement.childElementCount) {
@@ -30,29 +76,7 @@ function renderList(listElement, todos) {
   }
 
   for (const todo of todos) {
-    /*
-      <li class="todo-list-item">
-        <h6 class="todo-list-item-title">Physic Homework</h6>
-        <p class="todo-list-item-description">
-          I have too much homework todo.
-        </p>
-      </li>
-    */
-    const item = document.createElement('li')
-    item.classList.add('todo-list-item')
-
-    const itemTitle = document.createElement('h6')
-    itemTitle.classList.add('todo-list-item-title')
-    itemTitle.innerText = todo.title
-
-    const itemDescription = document.createElement('p')
-    itemDescription.classList.add('todo-list-item-description')
-    itemDescription.innerText = todo.description
-
-    item.appendChild(itemTitle)
-    item.appendChild(itemDescription)
-
-    listElement.appendChild(item)
+    listElement.appendChild(generateItem(todo))
   }
 }
 
