@@ -185,3 +185,42 @@ body {
     }
   }
 }
+
+.modal-create-todo-actions {
+  & > button {
+    padding: .5rem;
+    margin: .2rem;
+    border: 1px solid #efefef;
+    border-radius: .25rem;
+    
+    transition: all .2s ease-out;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.create {
+      border: 1px solid var(--theme-green);
+      color: var(--theme-green);
+
+      &:hover {
+        color: #fff;
+        background: var(--theme-green);
+      }
+    }
+
+    &.cancel {
+      border: 1px solid var(--theme-red);
+      color: var(--theme-red);
+
+      &:hover {
+        color: #fff;
+        background: var(--theme-red);
+      }
+    }
+  }
+}

@@ -121,7 +121,36 @@
 
   <div id="modal" class="hidden">
     <div id="modal-content">
-
+      <form>
+        <div>
+          <label for="todo-title">Title</label>
+          <input type="text" name="todo-title" id="todo-title">
+        </div>
+        <div>
+          <label for="todo-description">Description</label>
+          <textarea type="text" name="todo-description" id="todo-description"></textarea>
+        </div>
+        <div>
+          <label for="todo-due-date">Due Date</label>
+          <input type="date" name="due-date" id="todo-due-date">
+        </div>
+        <div>
+          <label for="todo-due">Due Time</label>
+          <input type="time" name="due-time" id="todo-due-time">
+        </div>
+        <div>
+          <label for="todo-level">Level</label>
+          <select name="level" id="todo-level">
+            <option value="emergency">Emergency</option>
+            <option value="normal">Normal</option>
+            <option value="gugu">GuGu</option>
+          </select>
+        </div>
+      </form>
+      <div class="modal-create-todo-actions">
+        <button class="create">Create</button> 
+        <button class="cancel">Cancel</button> 
+      </div>
     </div>
   </div>
 
