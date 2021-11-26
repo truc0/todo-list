@@ -60,6 +60,10 @@ function generateItem(todo) {
     const doneBtn = document.createElement("button")
     doneBtn.classList.add("todo-list-item--action-done")
     doneBtn.innerText = '🗸'
+    doneBtn.addEventListener('click', evt => {
+      todo.isDone = true
+      render()
+    })
 
     itemAction.appendChild(doneBtn)
 
@@ -85,9 +89,11 @@ function render() {
   const normalList = document.querySelector('#normal-todo-list .todo-list')
   const guguList = document.querySelector('#gugu-todo-list .todo-list')
 
-  renderList(emergencyList, todos.filter(t => t.level === 'emergency'))
-  renderList(normalList, todos.filter(t => t.level === 'normal'))
-  renderList(guguList, todos.filter(t => t.level === 'gugu'))
+  const _todos = todos.filter(t => !t.isDone)
+
+  renderList(emergencyList, _todos.filter(t => t.level === 'emergency'))
+  renderList(normalList, _todos.filter(t => t.level === 'normal'))
+  renderList(guguList, _todos.filter(t => t.level === 'gugu'))
 }
 
 
