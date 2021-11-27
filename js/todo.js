@@ -94,7 +94,7 @@ function render() {
 
   const cntEls = document.querySelectorAll('.todo-count')
   for (const element of cntEls) {
-    element.innerText = todos.length
+    element.innerText = todos.filter(t => !(t.isDone)).length
   }
 }
 
